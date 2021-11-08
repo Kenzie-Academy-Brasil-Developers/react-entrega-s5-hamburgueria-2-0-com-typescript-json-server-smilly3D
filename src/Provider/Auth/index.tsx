@@ -34,7 +34,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signIn = (userData: userData) => {
     axios
-      .post("http://localhost:3001/login", userData)
+      .post("https://fakeapi-hambugeriasmilly.herokuapp.com/login", userData)
       .then((response) => {
         localStorage.setItem("@5a11:token", response.data.accessToken);
         localStorage.setItem("@5a11:userId", response.data.user.id);
@@ -48,7 +48,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
 
   const signUp = (userData: userData) => {
     axios
-      .post("http://localhost:3001/signup", userData)
+      .post("https://fakeapi-hambugeriasmilly.herokuapp.com/signup", userData)
       .then((response) => {
         toast.success("Conta criada com sucesso");
         history.push("/login");

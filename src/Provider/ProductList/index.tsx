@@ -20,7 +20,7 @@ export const ProductListProvider = ({ children }: ProductListProps) => {
 
   const getProductList = () => {
     axios
-      .get("http://localhost:3001/products")
+      .get("https://fakeapi-hambugeriasmilly.herokuapp.com/products")
       .then((response) => {
         setProductList(response.data);
       })

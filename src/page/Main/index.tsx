@@ -1,15 +1,12 @@
-import { Button, Grid } from "@mui/material";
+import { Grid } from "@mui/material";
 import React, { useEffect } from "react";
 import SearchAppBar from "../../components/AppBar";
 import { CardItem } from "../../components/Card";
 
-import { useCart } from "../../Provider/Cart";
 import { useProductList } from "../../Provider/ProductList";
 
 function Main() {
   const { ProductList, getProductList } = useProductList();
-
-  const { getCart } = useCart();
 
   useEffect(() => {
     getProductList();
@@ -19,7 +16,6 @@ function Main() {
   return (
     <>
       <SearchAppBar />
-      <Button onClick={() => getCart()}>Teste</Button>
 
       <Grid
         container

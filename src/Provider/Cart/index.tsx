@@ -25,21 +25,23 @@ export const CartProvider = ({ children }: CartProps) => {
 
   const getCart = () => {
     axios
-      .get(`http://localhost:3001/cart?userId=${userid}`, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      })
+      .get(
+        `https://fakeapi-hambugeriasmilly.herokuapp.com/cart?userId=${userid}`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then((response) => {
         setCart(response.data);
-        console.log(response.data);
       })
       .catch((err) => console.log("err"));
   };
 
   const addCart = (item: Product) => {
     axios
-      .post(`http://localhost:3001/cart`, item, {
+      .post(`https://fakeapi-hambugeriasmilly.herokuapp.com/cart`, item, {
         headers: {
           Authorization: `Bearer ${authToken}`,
         },
@@ -53,11 +55,14 @@ export const CartProvider = ({ children }: CartProps) => {
 
   const removeCart = (item: Product) => {
     axios
-      .delete(`http://localhost:3001/cart/${item.id}`, {
-        headers: {
-          Authorization: `Bearer ${authToken}`,
-        },
-      })
+      .delete(
+        `https://fakeapi-hambugeriasmilly.herokuapp.com/cart/${item.id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${authToken}`,
+          },
+        }
+      )
       .then(() => {
         toast.success("Produto Removido");
         getCart();
